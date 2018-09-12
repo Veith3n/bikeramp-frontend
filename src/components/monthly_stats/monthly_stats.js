@@ -9,10 +9,10 @@ const TableHeader = ({columnSorted, id, name, sortType, ...props}) => {
     <th id={id} scope="col" {...props}>
       {name}
       {columnSorted === id && sortType === 'asc' &&
-      <img src={up_arrow} className="arrow"/>
+      <img src={up_arrow} alt="up arrow" className="arrow"/>
       }
       {columnSorted === id && sortType === 'desc' &&
-      <img src={down_arrow} className="arrow"/>
+      <img src={down_arrow} alt="down arrow" className="arrow"/>
       }
     </th>
   );
@@ -97,7 +97,7 @@ class MonthlyStats extends Component {
             </tr>
             </thead>
             {this.state.trips.map(trip =>
-              <tbody>
+              <tbody key={trip.day}>
               <tr>
                 <td>{trip.day} </td>
                 <td>{trip.total_distance}</td>
