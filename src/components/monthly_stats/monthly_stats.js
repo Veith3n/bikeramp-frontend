@@ -1,8 +1,8 @@
 import React, {Component, Fragment} from 'react';
-import axios from 'axios';
 import './monthly_stats.css';
 import up_arrow from '../../icons/up-arrow.png';
 import down_arrow from '../../icons/down-arrow.png';
+import {api} from "../../config/axios_consts";
 
 const TableHeader = ({columnSorted, id, name, sortType, ...props}) => {
   return (
@@ -38,7 +38,7 @@ class MonthlyStats extends Component {
   }
 
   monthlyStats(columnSorted, sortType) {
-    return axios.get(`http://localhost:3001/api/stats/monthly`, {
+      return api.get(`stats/monthly`, {
       params: {
         orderParam: columnSorted,
         orderType: sortType

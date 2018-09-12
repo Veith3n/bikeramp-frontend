@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import {app} from "../../config/axios_consts";
 
 
 class NewTrip extends Component {
@@ -31,7 +31,7 @@ class NewTrip extends Component {
   };
 
   onSubmit = (e) => {
-    axios.post('http://localhost:3001/trips', {
+    app.post('trips', {
       start_address: this.state.startAddress,
       destination_address: this.state.destinationAddress,
       price: this.state.price
