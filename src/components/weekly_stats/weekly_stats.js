@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import axios from 'axios';
+import {api} from "../../config/axios_consts";
 
 class WeeklyStats extends Component {
   state = {
@@ -12,7 +12,7 @@ class WeeklyStats extends Component {
   }
 
   weeklyStats() {
-    return axios.get(`http://localhost:3001/api/stats/weekly`)
+    return api.get(`stats/weekly`)
       .then(res => {
         const stats = res.data;
         return stats;
